@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'about',
     'weekly_challenges',
+    'courses',
 ]
 
 SITE_ID = 1
