@@ -15,6 +15,10 @@ a:active {
  text-decoration: none;
 }
 
+.center {
+ margin: auto;
+}
+
 /*----Nav-*/
 nav {
  border-bottom: 3px solid black;
@@ -60,6 +64,18 @@ nav {
 /*----Images-*/
 .img {
  width: 50%;
+ height: auto;
+ border-radius: 0.5rem;
+}
+
+.profile-img {
+ width: auto;
+ height: auto;
+ border-radius: 0.5rem;
+}
+
+.small-img {
+ width: 75%;
  height: auto;
  border-radius: 0.5rem;
 }
