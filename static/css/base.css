@@ -38,6 +38,10 @@ nav {
  font-size: 30px;
 }
 
+.text-green {
+ color: #76BA1B;
+}
+
 .contact-container {
  padding-bottom: 20px;
 }
@@ -51,6 +55,13 @@ nav {
  margin: auto;
  margin-top: 20px;
  margin-bottom: 20px;
+}
+
+/*----Images-*/
+.img {
+ width: 50%;
+ height: auto;
+ border-radius: 0.5rem;
 }
 
 /*----Footer-*/
