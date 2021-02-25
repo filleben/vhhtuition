@@ -1,1 +1,1 @@
-web: python vhhtuition.wsgi:application
+web: gunicorn vhhtuition.wsgi:application
