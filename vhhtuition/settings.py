@@ -42,11 +42,15 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
     'home',
     'about',
     'weekly_challenges',
     'courses',
+    'accounts',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SITE_ID = 1
 
@@ -83,6 +87,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vhhtuition.wsgi.application'
 
+# Django-Allauth
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Authentication Settings
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGTH = 5
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
