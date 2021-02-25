@@ -30,12 +30,21 @@
             >Weekly Challenges</a
           >
         </li>
-        <li class="nav-item hvr-sweep-to-right">
-          <a class="nav-link" href="#">Register</a>
-        </li>
-        <li class="nav-item hvr-sweep-to-right">
-          <a class="nav-link" href="#">Login</a>
-        </li>
+        {% if request.user.is_authenticated %}
+          <li class="nav-item hvr-sweep-to-right">
+            <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
+          </li>
+          <li class="nav-item hvr-sweep-to-right">
+            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item hvr-sweep-to-right">
+            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+          </li>
+          <li class="nav-item hvr-sweep-to-right">
+            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+          </li>
+        {% endif %}
       </ul>
       <form class="d-flex">
         <input
