@@ -57,15 +57,25 @@
     <!-- Django Messages -->
     {% if messages %}
     <div class="message-container">
-      {% for message in messages %} {% with message.level as level %} {% if
-      level == 40 %} {% include 'includes/toasts/toast_error.html' %} {% elif
-      level == 25 %} {% include 'includes/toasts/toast_success.html' %} {% endif
-      %} {% endwith %} {% endfor %}
+      {% for message in messages %} 
+        {% with message.level as level %} 
+          {% if level == 40 %} 
+            {% include 'includes/toasts/toast_error.html' %} 
+          {% elif level == 25 %} 
+            {% include 'includes/toasts/toast_success.html' %} 
+          {% endif %} 
+        {% endwith %} 
+      {% endfor %}
     </div>
-    {% endif %} {% block content %} {% endblock %}
+    {% endif %} 
+    
+    {% block content %} 
+    {% endblock %}
 
     <!-- Footer Injection -->
-    {% include 'footer.html' %} {% block postloadjs %}
+    {% include 'footer.html' %} 
+    
+    {% block postloadjs %}
     <!-- Toast Script -->
     <script>
       $('.toast').toast('show')
