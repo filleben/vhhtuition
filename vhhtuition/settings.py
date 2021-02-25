@@ -27,7 +27,8 @@ SECRET_KEY = '@t^amm32_%yzo#4(-+&$pt3ouz*am1!a__s)m(b2=&cy68=ci5'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'vhhtuition.herokuapp.com'
+    'vhhtuition.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
@@ -163,4 +164,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
