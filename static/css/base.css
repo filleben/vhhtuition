@@ -2,21 +2,41 @@
 
 /*----General-*/
 body {
- min-height: 100vh;
  overflow-x: hidden;
  font-family: 'Raleway', sans-serif;
 }
 
-a:hover,
-a:visited,
-a:link,
-a:active {
- color: black;
- text-decoration: none;
+.section {
+ min-height: 63vh;
+}
+
+a {
+ color: inherit;
+}
+
+a:hover {
+ color: #76BA1B;
 }
 
 .center {
  margin: auto;
+}
+
+/*----Buttons-*/
+.btn:hover {
+ color: #ffffff;
+ background-color: #000000;
+}
+
+.btn {
+ color: #000000;
+ background-color: #76BA1B;
+}
+
+/*----Form Customization-*/
+.form-check .form-check-input {
+ float: none;
+ margin-left: -1.5em;
 }
 
 /*----Nav-*/
@@ -78,6 +98,26 @@ nav {
  width: 75%;
  height: auto;
  border-radius: 0.5rem;
+}
+
+/*------Toasts/Messages-*/
+.message-container {
+ position: fixed;
+ top: 4.5rem;
+ right: 0.9375rem;
+ z-index: 99999999999;
+}
+
+.custom-toast {
+ overflow: visible;
+}
+
+.toast-capper {
+ height: 0.125rem;
+}
+
+.top-padding {
+ padding-top: 6.25rem;
 }
 
 /*----Footer-*/
