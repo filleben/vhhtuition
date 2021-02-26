@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'weekly_challenges',
     'courses',
     'accounts',
+    'contact',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -92,6 +93,8 @@ TEMPLATES = [
         },
     },
 ]
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 WSGI_APPLICATION = 'vhhtuition.wsgi.application'
 
