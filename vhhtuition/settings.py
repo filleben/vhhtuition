@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'courses',
     'accounts',
     'contact',
+    'assessments',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
