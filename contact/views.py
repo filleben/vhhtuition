@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from .models import Contact
 from .forms import ContactForm
+from django.contrib.auth.decorators import login_required
 
 
 def contact(request):
@@ -48,3 +49,28 @@ def contact_success(request, contact_number):
         'contact': contact,
     }
     return render(request, 'contact/contact_success.html', context)
+
+
+@login_required
+def message_management(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'You do not have access to this page!')
+        return redirect(reverse('home'))
+
+    contacts = Contact.objects.all().order_by('-id')
+    context = {
+        'contacts': contacts,
+    }
+    return render(request, 'contact/message_management.html', context)
+
+
+@login_required
+def delete_message(request, contact_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'You do not have access to this page!')
+        return redirect(reverse('home'))
+
+    contact = get_object_or_404(Contact, pk=contact_id)
+    contact.delete()
+    messages.success(request, 'Successfully deleted message!')
+    return redirect(reverse('message_management'))
