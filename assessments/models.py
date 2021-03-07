@@ -7,6 +7,8 @@ class Assessment(models.Model):
     """
     name = models.CharField(max_length=400)
     description = models.TextField(null=True, blank=True)
+    user = models.ForeignKey('accounts.UserProfile', null=True, blank=True,
+                             on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name

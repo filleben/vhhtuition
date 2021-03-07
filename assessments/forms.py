@@ -1,5 +1,6 @@
 from django import forms
 from .models import Assessment, Question
+from accounts.models import UserProfile
 
 
 class AssessmentForm(forms.ModelForm):
@@ -9,6 +10,13 @@ class AssessmentForm(forms.ModelForm):
     class Meta:
         model = Assessment
         fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        users = UserProfile.objects.all()
+        user = [(u.id, u.get_user()) for u in users]
+
+        self.fields['user'].choices = user
 
 
 class QuestionForm(forms.ModelForm):

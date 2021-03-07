@@ -5,7 +5,34 @@
     <div class="col-12">
       <h4 class="text-center text-green">User Profile</h4>
       <div class="block-divider"></div>
-      <p class="text-center">User Profile</p>
+      <div class="col-12">
+        <form action="{% url 'profile' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="rounded px-3 mb-2">
+            {{ form | crispy }}
+          </fieldset>
+          <div class="text-center mb-3">
+            <button class="btn" type="submit">
+              <span>Update</span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <h4 class="text-center text-green">My Assignments</h4>
+      <div class="block-divider"></div>
+      <div class="row">
+        {% for assessment in assessments %}
+        <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <h5 class="card-header">{{ assessment.name }}</h5>
+            <div class="card-body">
+              <p class="card-text">{{ assessment.description }}</p>
+              <a href="{% url 'assessment_questions' assessment.id %}" class="btn">View Questions</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
