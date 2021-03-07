@@ -22,9 +22,6 @@
           <a class="nav-link" href="{% url 'display_challenges'%}">Challenges</a>
         </li>
         <li class="nav-item hvr-sweep-to-right">
-          <a class="nav-link" href="{% url 'assessments'%}">Assessments</a>
-        </li>
-        <li class="nav-item hvr-sweep-to-right">
           <a class="nav-link" href="{% url 'contact'%}">Contact</a>
         </li>
         {% if request.user.is_superuser %}
