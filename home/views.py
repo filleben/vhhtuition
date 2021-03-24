@@ -1,8 +1,14 @@
 from django.shortcuts import render
+from courses.models import Course
 
 
 def home(request):
-    return render(request, 'home/index.html')
+    courses = Course.objects.order_by('-course_views')[:3]
+
+    context = {
+        'courses': courses,
+    }
+    return render(request, 'home/index.html', context)
 
 
 def privacy(request):

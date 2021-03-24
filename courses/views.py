@@ -12,6 +12,9 @@ def display_courses(request):
 
 def view_course(request, course_id):
     courses = Course.objects.filter(id=course_id)
+    course_object = Course.objects.get(id=course_id)
+    course_object.course_views = course_object.course_views+1
+    course_object.save()
     context = {
         'courses': courses,
     }
