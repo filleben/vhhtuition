@@ -33,6 +33,10 @@ a:hover {
  background-color: #76BA1B;
 }
 
+.btn-cart {
+ margin-left: 5px;
+}
+
 /*----Form Customization-*/
 .form-check .form-check-input {
  float: none;
