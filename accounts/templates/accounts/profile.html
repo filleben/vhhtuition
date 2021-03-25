@@ -18,20 +18,36 @@
           </div>
         </form>
       </div>
-      <h4 class="text-center text-green">My Assignments</h4>
+      <h4 class="text-center text-green">My Courses</h4>
       <div class="block-divider"></div>
       <div class="row">
-        {% for assessment in assessments %}
-        <div class="col-md-4">
-          <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ assessment.name }}</h5>
+        {% for order in orders %}
+        <div class="col-md-4 pb-3">
+          <div class="card text-center" style="width: 18rem;">
+            {% for item in order.lineitems.all %}
+            <h5 class="card-header">{{ item.course.name }}</h5>
             <div class="card-body">
-              <p class="card-text">{{ assessment.description }}</p>
-              <a href="{% url 'assessment_questions' assessment.id %}" class="btn">View Questions</a>
+              <a href="{% url 'my_courses' order.order_number %}" class="btn">View Course</a>
             </div>
+            {% endfor %}
           </div>
         </div>
         {% endfor %}
+        <h4 class="text-center text-green pt-3">My Assignments</h4>
+        <div class="block-divider"></div>
+        <div class="row pb-3">
+          {% for assessment in assessments %}
+          <div class="col-md-4 pb-3">
+            <div class="card text-center" style="width: 18rem;">
+              <h5 class="card-header">{{ assessment.name }}</h5>
+              <div class="card-body">
+                <p class="card-text">{{ assessment.description }}</p>
+                <a href="{% url 'assessment_questions' assessment.id %}" class="btn">View Questions</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>

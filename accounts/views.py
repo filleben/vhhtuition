@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 from assessments.models import Assessment
+from checkout.models import Order
 from django.contrib.auth.decorators import login_required
 
 
@@ -22,11 +23,21 @@ def profile(request):
         form = UserProfileForm(instance=profile)
 
     assessments = Assessment.objects.filter(user=profile)
+    orders = profile.orders.all()
 
     context = {
         'profile': profile,
         'form': form,
         'assessments': assessments,
+        'orders': orders,
     }
 
     return render(request, 'accounts/profile.html', context)
+
+
+def my_courses(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+    context = {
+        'order': order,
+    }
+    return render(request, 'checkout/checkout_success.html', context)

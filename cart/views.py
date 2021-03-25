@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def view_cart(request):
     return render(request, 'cart/cart.html')
 
 
+@login_required
 def add_to_cart(request, id):
     quantity = 1
     cart = request.session.get('cart', {})
@@ -17,6 +20,7 @@ def add_to_cart(request, id):
     return redirect(reverse('view_cart'))
 
 
+@login_required
 def remove_item(request, id):
     cart = request.session.get('cart', {})
     quantity = cart[id] - 1
