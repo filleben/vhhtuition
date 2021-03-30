@@ -17,3 +17,11 @@ def privacy(request):
 
 def cookie(request):
     return render(request, 'home/cookie_policy.html')
+
+
+def handler_404(request, exception):
+    return render(request, '404.html')
+
+
+def handler_500(request, *args, **argv):
+    return render(request, '500.html')

@@ -30,3 +30,6 @@ urlpatterns = [
     path('checkout/', include("checkout.urls")),
     path('search/', include("search.urls")),
 ]
+
+handler404 = 'home.views.handler_404'
+handler500 = 'home.views.handler_500'
