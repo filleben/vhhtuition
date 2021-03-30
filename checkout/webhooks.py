@@ -10,9 +10,6 @@ from checkout.webhook_handler import StripeWebhook_Handler
 @require_POST
 @csrf_exempt
 def webhook(request):
-    """
-    Webhook Endpoint
-    """
     wh_secret = settings.STRIPE_WH_SECRET
     stripe.api_key = settings.STRIPE_SECRET_KEY
     payload = request.body

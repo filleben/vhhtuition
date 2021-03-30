@@ -35,6 +35,7 @@ def profile(request):
     return render(request, 'accounts/profile.html', context)
 
 
+@login_required
 def my_courses(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
     context = {
